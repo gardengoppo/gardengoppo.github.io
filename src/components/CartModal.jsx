@@ -28,7 +28,7 @@ export default function CartModal({ cart, onClose }) {
             <p className="mt-4 font-bold text-green-900 dark:text-green-100">Total: ₹{total}</p>
 
             <a
-              href={`https://wa.me/916296489192?text=${cartMsg}`}
+              href={`https://wa.me/919062203601?text=${cartMsg}`}
               target="_blank"
               rel="noopener noreferrer"
               className="block mt-4 bg-green-600 text-white text-center py-2 rounded hover:bg-green-700"

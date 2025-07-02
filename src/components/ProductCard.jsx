@@ -28,7 +28,7 @@ export default function ProductCard({ product, onAdd, onView }) {
           Add to Cart
         </button>
         <a
-          href={`https://wa.me/919000000000?text=${message}`}
+          href={`https://wa.me/919062203601?text=${message}`}
           target="_blank"
           rel="noopener noreferrer"
           className="bg-white border border-green-600 text-green-700 hover:bg-green-50 dark:bg-gray-700 dark:text-green-300 dark:border-green-300 py-1 rounded text-center"
