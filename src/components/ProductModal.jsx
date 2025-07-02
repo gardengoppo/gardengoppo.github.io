@@ -69,7 +69,7 @@ export default function ProductModal({ product, onClose, onAdd }) {
             className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded"
           >
             Add to Cart
-          </button>
+          </button> 
           <a
             href={`https://wa.me/919062203601?text=${message}`}
             target="_blank"

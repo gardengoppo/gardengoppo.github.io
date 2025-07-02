@@ -4,7 +4,7 @@
     "name": "Aloe Vera",
     "price": 199,
     "category": "Plants",
-    "images": ["/images/product1a.jpg", "/images/product1b.jpg"],
+    "images": ["https://placehold.co/400", "https://placehold.co/400"],
     "description": "Natural healing plant."
   },
   {
@@ -12,7 +12,7 @@
     "name": "Rose",
     "price": 149,
     "category": "Flowers",
-    "image": "rose.jpg",
+    "image": ["https://placehold.co/400"],
     "description": "Beautiful red rose."
   },
   {
@@ -20,7 +20,7 @@
     "name": "Garden Shears",
     "price": 299,
     "category": "Tools",
-    "images": ["/images/product1a.jpg", "/images/product1b.jpg"],
+    "images": ["https://placehold.co/400", "https://placehold.co/400"],
     "description": "Perfect for trimming."
   }
 ]
