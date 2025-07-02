@@ -1,19 +1,19 @@
 [
   {
     "id": 1,
-    "name": "Aloe Vera",
+    "name": "Mango",
     "price": 199,
     "category": "Plants",
     "images": ["https://placehold.co/400", "https://placehold.co/400"],
-    "description": "Natural healing plant."
+    "description": "Mango plants for mago people."
   },
   {
     "id": 2,
     "name": "Rose",
     "price": 149,
     "category": "Flowers",
-    "image": ["https://placehold.co/350","https://placehold.co/350"],
-    "description": "Beautiful red rose."
+    "images": ["https://placehold.co/350","https://placehold.co/350"],
+    "description": "Beautiful red rose for your boss wife."
   },
   {
     "id": 3,
@@ -21,6 +21,6 @@
     "price": 299,
     "category": "Tools",
     "images": ["https://placehold.co/400", "https://placehold.co/400"],
-    "description": "Perfect for trimming."
+    "description": "Perfect for trimming your hair."
   }
 ]
