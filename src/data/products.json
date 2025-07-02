@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Aloe Vera",
+    "price": 199,
+    "category": "Plants",
+    "images": ["/images/product1a.jpg", "/images/product1b.jpg"],
+    "description": "Natural healing plant."
+  },
+  {
+    "id": 2,
+    "name": "Rose",
+    "price": 149,
+    "category": "Flowers",
+    "image": "rose.jpg",
+    "description": "Beautiful red rose."
+  },
+  {
+    "id": 3,
+    "name": "Garden Shears",
+    "price": 299,
+    "category": "Tools",
+    "images": ["/images/product1a.jpg", "/images/product1b.jpg"],
+    "description": "Perfect for trimming."
+  }
+]
