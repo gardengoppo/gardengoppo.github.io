@@ -19,8 +19,10 @@ export default function CartModal({ cart, onClose, onRemove }) {
             <ul className="space-y-2">
               {cart.map((item, i) => (
                 <li key={i} className="flex justify-between">
+                  <div className="flex  flex-start gap-4">
                   <span>{item.name}</span>
                   <span>₹{item.price}</span>
+                  </div>
                   <button
                     onClick={() => onRemove(i)}
                     className="text-red-500 hover:text-red-700"
