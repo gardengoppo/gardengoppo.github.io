@@ -8,7 +8,7 @@ export default function ProductCard({ product, onAdd, onView }) {
       <img
         src={product.images?.[0]}
         alt={product.name}
-        className="w-full h-48 object-cover rounded cursor-pointer"
+        className="w-full h-48 object-contain rounded cursor-pointer"
         onClick={() => onView(product)}
       />
       <h3

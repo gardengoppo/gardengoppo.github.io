@@ -3,8 +3,9 @@ import ProductCard from './components/ProductCard';
 import CartModal from './components/CartModal';
 import ProductModal from "./components/ProductModal";
 import Scene from './components/Scene';
+import Loader from './components/Loader';
 
-import products from './data/products.json';
+//import products from './data/products.json';
 
 import { useState, useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
@@ -16,6 +17,8 @@ export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const [cart, setCart] = useState(() => {
     const stored = localStorage.getItem('cart');
@@ -26,6 +29,23 @@ export default function App() {
     const saved = localStorage.getItem('theme');
     return saved ? saved === 'dark' : prefersDark;
   });
+
+  useEffect(() => {
+
+    async function fetchProducts() {
+    setLoading(true);
+    try {
+      const res = await fetch('https://script.google.com/macros/s/AKfycbzkpG1QfmO_Xuh6byDPu3zfLd7WjHtdFz8ZGzZLznjdBuOVEw5yJqARSLjTIZXklruZOA/exec');
+      const data = await res.json();
+      setProducts(data);
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+    } finally {
+      setLoading(false);
+    }
+  }
+  fetchProducts();
+}, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
@@ -45,6 +65,13 @@ export default function App() {
     });
   };
 
+  const removeFromCart = (index) => {
+    const updated = [...cart];
+    updated.splice(index, 1);
+    setCart(updated);
+    localStorage.setItem('cart', JSON.stringify(updated));
+  };
+
   const handleProductView = (product) => {
   setSelectedProduct(product);
   };
@@ -54,13 +81,13 @@ export default function App() {
       <Helmet>
         <title>Garden Goppo – Plant Store</title>
         <meta name="description" content="Buy plants and garden products from Garden Goppo. Beautiful flowers, greenery, and local delivery." />
-        <link rel="canonical" href="https://yourusername.github.io/" />
+        <link rel="canonical" href="https://gardengoppo.github.io/" />
       </Helmet>
       <Header count={cart.length} onCartClick={() => setCartOpen(true)} />
       <div className="absolute top-3 right-16 z-50">
         <button
           onClick={() => setDarkMode(!darkMode)}
-          className="text-xl bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-1 rounded"
+          className="text-xl  text-gray-800 dark:text-white px-3 py-1 rounded"
           aria-label="Toggle Dark Mode"
         >
           {darkMode ? '☀️' : '🌙'}
@@ -69,7 +96,7 @@ export default function App() {
       {/* <Scene /> */}
       <main className="flex-1 flex flex-col">
   <div className="flex gap-2 px-4 pt-4 flex-wrap">
-    {['All', 'Plants', 'Flowers', 'Tools'].map((cat) => (
+    {['All', 'Flowers', 'Fruits', 'Tools', 'Seeds','Cactus'].map((cat) => (
       <button
         key={cat}
         onClick={() => setSelectedCategory(cat)}
@@ -84,18 +111,25 @@ export default function App() {
     ))}
   </div>
 
-  <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1">
+  {/* <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1"> */}
+    {loading ? (
+    <Loader />
+  ) : (
+    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1">
     {products
       .filter((p) => selectedCategory === 'All' || p.category === selectedCategory)
       .map((p) => (
-        <ProductCard key={p.id} product={p} onAdd={addToCart} onView={handleProductView} />
+        <ProductCard key={p.id} product={p} onAdd={addToCart} />
       ))}
-  </div>
+      </div>
+  )}
+  {/* </div> */}
 </main>
 
       <Toaster position="bottom-center" />
 
-      {cartOpen && <CartModal cart={cart} onClose={() => setCartOpen(false)} />}
+      {cartOpen && <CartModal cart={cart} onClose={() => setCartOpen(false)} onRemove={removeFromCart} />}
+
       {selectedProduct && (
   <ProductModal
     product={selectedProduct}

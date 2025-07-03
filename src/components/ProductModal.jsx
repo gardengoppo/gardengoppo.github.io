@@ -45,7 +45,7 @@ export default function ProductModal({ product, onClose, onAdd }) {
                 <img
                   src={img}
                   alt={`${product.name} ${idx + 1}`}
-                  className="w-full h-64 object-cover rounded"
+                  className="w-full h-64 object-contain rounded"
                 />
               </SwiperSlide>
             ))}

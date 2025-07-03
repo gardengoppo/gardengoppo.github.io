@@ -1,4 +1,4 @@
-export default function CartModal({ cart, onClose }) {
+export default function CartModal({ cart, onClose, onRemove }) {
   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   const cartMsg = encodeURIComponent(
@@ -21,6 +21,13 @@ export default function CartModal({ cart, onClose }) {
                 <li key={i} className="flex justify-between">
                   <span>{item.name}</span>
                   <span>₹{item.price}</span>
+                  <button
+                    onClick={() => onRemove(i)}
+                    className="text-red-500 hover:text-red-700"
+                    title="Remove"
+                  >
+                    ❌
+                  </button>
                 </li>
               ))}
             </ul>
