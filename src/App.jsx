@@ -111,7 +111,6 @@ export default function App() {
     ))}
   </div>
 
-  {/* <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 flex-1"> */}
     {loading ? (
     <Loader />
   ) : (
@@ -119,11 +118,11 @@ export default function App() {
     {products
       .filter((p) => selectedCategory === 'All' || p.category === selectedCategory)
       .map((p) => (
-        <ProductCard key={p.id} product={p} onAdd={addToCart} />
+        <ProductCard key={p.id} product={p} onAdd={addToCart} onView={handleProductView} />
       ))}
       </div>
   )}
-  {/* </div> */}
+
 </main>
 
       <Toaster position="bottom-center" />
