@@ -16,6 +16,7 @@ export default function CartModal({ cart, onClose, onRemove }) {
           <p className="text-sm">Your cart is empty.</p>
         ) : (
           <>
+          <div className="max-h-[60vh] overflow-y-auto space-y-4">
             <ul className="space-y-2">
               {cart.map((item, i) => (
                 <li key={i} className="flex justify-between">
@@ -33,6 +34,7 @@ export default function CartModal({ cart, onClose, onRemove }) {
                 </li>
               ))}
             </ul>
+            </div>
 
             <p className="mt-4 font-bold text-green-900 dark:text-green-100">Total: ₹{total}</p>
 

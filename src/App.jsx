@@ -4,6 +4,8 @@ import CartModal from './components/CartModal';
 import ProductModal from "./components/ProductModal";
 import Scene from './components/Scene';
 import Loader from './components/Loader';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 //import products from './data/products.json';
 
@@ -184,7 +186,8 @@ export default function App() {
           onAdd={addToCart}
         />
       )}
-
+      <Footer/>
+      <ScrollToTop/>
     </div>
   );
 }
