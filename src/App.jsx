@@ -37,7 +37,7 @@ export default function App() {
     async function fetchProducts() {
       setLoading(true);
       try {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbzkpG1QfmO_Xuh6byDPu3zfLd7WjHtdFz8ZGzZLznjdBuOVEw5yJqARSLjTIZXklruZOA/exec');
+        const res = await fetch('products.json');
         const data = await res.json();
         setProducts(data);
       } catch (error) {
