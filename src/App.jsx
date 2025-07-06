@@ -37,7 +37,7 @@ export default function App() {
     async function fetchProducts() {
       setLoading(true);
       try {
-        const res = await fetch('products.json');
+        const res = await fetch('products.json?v='+Date.now());
         const data = await res.json();
         setProducts(data);
       } catch (error) {
