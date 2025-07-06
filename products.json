@@ -10,7 +10,8 @@
     "price": 299,
     "category": "Flowers",
     "image1_name": "ai.png",
-    "image2_name": "gglogo"
+    "image2_name": "gglogo",
+    "Update Site": ""
   },
   {
     "images": [
@@ -23,7 +24,8 @@
     "price": 499,
     "category": "Flowers",
     "image1_name": "gglogo",
-    "image2_name": "ai.png"
+    "image2_name": "ai.png",
+    "Update Site": ""
   },
   {
     "images": [
@@ -36,7 +38,8 @@
     "price": 69,
     "category": "Cactus",
     "image1_name": "ai.png",
-    "image2_name": "gglogo"
+    "image2_name": "gglogo",
+    "Update Site": ""
   },
   {
     "images": [
@@ -49,7 +52,8 @@
     "price": 787,
     "category": "Fruits",
     "image1_name": "gglogo",
-    "image2_name": "ai.png"
+    "image2_name": "ai.png",
+    "Update Site": ""
   },
   {
     "images": [
@@ -62,6 +66,7 @@
     "price": 5,
     "category": "Seeds",
     "image1_name": "gglogo",
-    "image2_name": "plant.png"
+    "image2_name": "plant.png",
+    "Update Site": ""
   }
 ]
