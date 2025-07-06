@@ -11,7 +11,7 @@
     "category": "Flowers",
     "image1_name": "ai.png",
     "image2_name": "gglogo",
-    "Update Site": ""
+    "Update Website": false
   },
   {
     "images": [
@@ -25,7 +25,7 @@
     "category": "Flowers",
     "image1_name": "gglogo",
     "image2_name": "ai.png",
-    "Update Site": ""
+    "Update Website": false
   },
   {
     "images": [
@@ -39,7 +39,7 @@
     "category": "Cactus",
     "image1_name": "ai.png",
     "image2_name": "gglogo",
-    "Update Site": ""
+    "Update Website": false
   },
   {
     "images": [
@@ -53,7 +53,7 @@
     "category": "Fruits",
     "image1_name": "gglogo",
     "image2_name": "ai.png",
-    "Update Site": ""
+    "Update Website": false
   },
   {
     "images": [
@@ -67,6 +67,6 @@
     "category": "Seeds",
     "image1_name": "gglogo",
     "image2_name": "plant.png",
-    "Update Site": ""
+    "Update Website": false
   }
 ]
