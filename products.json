@@ -53,7 +53,8 @@
   },
   {
     "images": [
-      "https://lh3.googleusercontent.com/d/1-8RXUB2_FLMK6vNEO0y4rtZESzJNDAGV=w800"
+      "https://lh3.googleusercontent.com/d/1-8RXUB2_FLMK6vNEO0y4rtZESzJNDAGV=w800",
+      "https://lh3.googleusercontent.com/d/1jvpvjbQSIxI0zIOE1oku_Ub-Vth6gyla=w800"
     ],
     "id": "sku67",
     "name": "Coriander seeds",
@@ -61,7 +62,6 @@
     "price": 5,
     "category": "Seeds",
     "image1_name": "gglogo",
-    "image2_name": "",
-    "image2_url": ""
+    "image2_name": "plant.png"
   }
 ]
