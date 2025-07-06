@@ -1,42 +1,69 @@
-export default function CartModal({ cart, onClose, onRemove }) {
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+export default function CartModal({ cart, onClose, onUpdate }) {
+  const getTotal = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const increment = (index) => {
+    const updated = [...cart];
+    updated[index].quantity += 1;
+    onUpdate(updated);
+  };
+
+  const decrement = (index) => {
+    const updated = [...cart];
+    if (updated[index].quantity > 1) {
+      updated[index].quantity -= 1;
+    } else {
+      updated.splice(index, 1);
+    }
+    onUpdate(updated);
+  };
 
   const cartMsg = encodeURIComponent(
     `Hi, I would like to buy these items:\n${cart
-      .map(item => `${item.name} - ₹${item.price}`)
-      .join('\n')}\nTotal: ₹${total}`
+      .map(item => `${item.name} - ₹${item.price} × ${item.quantity}`)
+      .join('\n')}\nTotal: ₹${getTotal()}`
   );
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-md">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-md max-h-[90vh] overflow-y-auto">
         <h2 className="text-xl font-semibold mb-4 text-green-700 dark:text-green-300">Cart</h2>
 
         {cart.length === 0 ? (
           <p className="text-sm">Your cart is empty.</p>
         ) : (
           <>
-          <div className="max-h-[60vh] overflow-y-auto space-y-4">
-            <ul className="space-y-2">
-              {cart.map((item, i) => (
-                <li key={i} className="flex justify-between">
-                  <div className="flex  flex-start gap-4">
-                  <span>{item.name}</span>
-                  <span>₹{item.price}</span>
-                  </div>
-                  <button
-                    onClick={() => onRemove(i)}
-                    className="text-red-500 hover:text-red-700"
-                    title="Remove"
-                  >
-                    ❌
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-4">
+              <ul className="space-y-2">
+                {cart.map((item, i) => (
+                  <li key={i} className="flex justify-between items-center">
+                    <div className="flex flex-col">
+                      <span className="font-medium">{item.name}</span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">₹{item.price} × {item.quantity}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => decrement(i)}
+                        className="bg-red-500 text-white px-2 py-1 rounded"
+                      >
+                        –
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button
+                        onClick={() => increment(i)}
+                        className="bg-green-500 text-white px-2 py-1 rounded"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <p className="mt-4 font-bold text-green-900 dark:text-green-100">Total: ₹{total}</p>
+            <p className="mt-4 font-bold text-green-900 dark:text-green-100">Total: ₹{getTotal()}</p>
 
             <a
               href={`https://wa.me/919062203601?text=${cartMsg}`}

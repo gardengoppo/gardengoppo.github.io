@@ -33,21 +33,43 @@ export default function App() {
   });
 
   useEffect(() => {
+  async function fetchProducts() {
+    setLoading(true);
+    try {
+      const res = await fetch('/products.new.json?v=' + Date.now());
+      const data = await res.json();
+      setProducts(data);
 
-    async function fetchProducts() {
-      setLoading(true);
-      try {
-        const res = await fetch('/products.new.json?v='+Date.now());
-        const data = await res.json();
-        setProducts(data);
-      } catch (error) {
-        console.error('Failed to fetch products:', error);
-      } finally {
-        setLoading(false);
-      }
+      // Perform cart reconciliation here
+      const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+      const reconciled = storedCart.map((item) => {
+        const updatedProduct = data.find(p => p.id === item.id);
+        if (updatedProduct) {
+          if (updatedProduct.price !== item.price) {
+            toast(`🛒 Price updated for ${item.name}`, { duration: 3000 });
+          }
+          return {
+            ...updatedProduct,
+            quantity: item.quantity,
+          };
+        } else {
+          toast(`❌ ${item.name} is no longer available`, { duration: 3000 });
+          return null;
+        }
+      }).filter(Boolean);
+
+      setCart(reconciled);
+      localStorage.setItem('cart', JSON.stringify(reconciled));
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+    } finally {
+      setLoading(false);
     }
-    fetchProducts();
-  }, []);
+  }
+
+  fetchProducts();
+}, []);
+
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
@@ -88,23 +110,32 @@ export default function App() {
 
 
   const addToCart = (product) => {
-    const updated = [...cart, product];
-    setCart(updated);
-    localStorage.setItem('cart', JSON.stringify(updated));
+    const existingIndex = cart.findIndex((item) => item.id === product.id);
+    let updatedCart;
+
+    if (existingIndex !== -1) {
+      // Already exists → increment quantity
+      updatedCart = [...cart];
+      updatedCart[existingIndex].quantity += 1;
+    } else {
+      // New item → add with quantity
+      updatedCart = [...cart, { ...product, quantity: 1 }];
+    }
+
+    setCart(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
     toast.success(`${product.name} added!`, {
       duration: 2000,
       style: {
         background: '#22c55e',
         color: '#fff',
-      },
-    });
+      }
+    })
   };
 
-  const removeFromCart = (index) => {
-    const updated = [...cart];
-    updated.splice(index, 1);
-    setCart(updated);
-    localStorage.setItem('cart', JSON.stringify(updated));
+  const updateCart = (updatedCart) => {
+    setCart(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
   const handleProductView = (product) => {
@@ -134,7 +165,7 @@ export default function App() {
         )}
         <meta property="og:url" content={window.location.href} />
       </Helmet>
-      <Header count={cart.length} onCartClick={() => setCartOpen(true)} />
+      <Header count={cart.reduce((sum, item) => sum + item.quantity, 0)} onCartClick={() => setCartOpen(true)} />
       <div className="absolute top-3 right-16 z-50">
         <button
           onClick={() => setDarkMode(!darkMode)}
@@ -152,8 +183,8 @@ export default function App() {
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-1 rounded border ${selectedCategory === cat
-                  ? 'bg-green-600 text-white'
-                  : 'bg-white dark:bg-gray-800 text-green-700 dark:text-green-300 border-green-600'
+                ? 'bg-green-600 text-white'
+                : 'bg-white dark:bg-gray-800 text-green-700 dark:text-green-300 border-green-600'
                 }`}
             >
               {cat}
@@ -177,7 +208,13 @@ export default function App() {
 
       <Toaster position="bottom-center" />
 
-      {cartOpen && <CartModal cart={cart} onClose={() => setCartOpen(false)} onRemove={removeFromCart} />}
+      {cartOpen && (
+        <CartModal
+          cart={cart}
+          onClose={() => setCartOpen(false)}
+          onUpdate={updateCart}
+        />
+      )}
 
       {selectedProduct && (
         <ProductModal
@@ -186,8 +223,8 @@ export default function App() {
           onAdd={addToCart}
         />
       )}
-      <Footer/>
-      <ScrollToTop/>
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 }
