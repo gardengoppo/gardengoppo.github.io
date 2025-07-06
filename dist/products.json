@@ -1,29 +1,29 @@
 [
   {
     "images": [
-      "https://drive.google.com/uc?export=view&id=1jvpvjbQSIxI0zIOE1oku_Ub-Vth6gyla",
-      "https://drive.google.com/uc?export=view&id=1pLQB1LA_i6IGiOlxsWHHuCtnKvNzQ0bA"
+      "https://lh3.googleusercontent.com/d/1pLQB1LA_i6IGiOlxsWHHuCtnKvNzQ0bA=w800",
+      "https://lh3.googleusercontent.com/d/1-8RXUB2_FLMK6vNEO0y4rtZESzJNDAGV=w800"
     ],
     "id": 1,
-    "name": "Test Plants",
+    "name": "Test Plant",
     "description": "Beautiful flower plant",
     "price": 299,
     "category": "Flowers",
-    "image1_name": "plant.png",
-    "image2_name": "ai.png"
+    "image1_name": "ai.png",
+    "image2_name": "gglogo"
   },
   {
     "images": [
-      "https://drive.google.com/uc?export=view&id=1pLQB1LA_i6IGiOlxsWHHuCtnKvNzQ0bA",
-      "https://drive.google.com/uc?export=view&id=1jvpvjbQSIxI0zIOE1oku_Ub-Vth6gyla"
+      "https://lh3.googleusercontent.com/d/1-8RXUB2_FLMK6vNEO0y4rtZESzJNDAGV=w800",
+      "https://lh3.googleusercontent.com/d/1pLQB1LA_i6IGiOlxsWHHuCtnKvNzQ0bA=w800"
     ],
     "id": 2,
     "name": "Garden Tools",
     "description": "Set of 3 gardening tools",
     "price": 499,
     "category": "Flowers",
-    "image1_name": "ai.png",
-    "image2_name": "plant.png"
+    "image1_name": "gglogo",
+    "image2_name": "ai.png"
   },
   {
     "images": [
