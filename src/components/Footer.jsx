@@ -19,6 +19,8 @@ export default function Footer() {
             <li><Link to="/about" className="hover:text-green-300">About Us</Link></li>
             <li><Link to="/shipping" className="hover:text-green-300">Shipping Policy</Link></li>
             <li><Link to="/terms" className="hover:text-green-300">Terms & Conditions</Link></li>
+            <li><Link to="/grow" className="hover:text-green-300">Grow Plant Game 🌿</Link></li>
+            
           </ul>
         </div>
 

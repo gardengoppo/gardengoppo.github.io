@@ -5,6 +5,7 @@ import App from './App';
 import Terms from './pages/Terms';
 import About from './pages/About';
 import Shipping from './pages/Shipping';
+import GrowYourPlant from './pages/GrowYourPlant';
 import './styles/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/terms" element={<Terms />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/about" element={<About />} />
+        <Route path="/grow" element={<GrowYourPlant />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
