@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico','favicon-16x16.png','favicon-32x32.png', 'icon-192.png', 'icon-512.png'],
+      includeAssets: ['favicon.ico','favicon-32.png','favicon-48.png','favicon-64.png', 'icon-192.png', 'icon-512.png'],
       manifest: {
         name: 'Garden Goppo',
         short_name: 'Garden Goppo',
