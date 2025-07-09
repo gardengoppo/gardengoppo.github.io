@@ -6,6 +6,7 @@ import Scene from './components/Scene';
 import Loader from './components/Loader';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import PwaInstallPrompt from './components/PwaInstallPrompt'
 
 //import products from './data/products.json';
 
@@ -225,6 +226,7 @@ export default function App() {
       )}
       <Footer />
       <ScrollToTop />
+      <PwaInstallPrompt />
     </div>
   );
 }
