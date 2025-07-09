@@ -7,11 +7,11 @@
     "id": 1,
     "name": "Gerbera",
     "description": "Beautiful flower plants",
-    "price": 299,
+    "price": 199,
     "category": "Flowers",
     "image1_name": "ai.png",
     "image2_name": "gglogo",
-    "Push Data to Website": false
+    "Update Website": false
   },
   {
     "images": [
@@ -19,13 +19,13 @@
       "https://lh3.googleusercontent.com/d/1pLQB1LA_i6IGiOlxsWHHuCtnKvNzQ0bA=w800"
     ],
     "id": 2,
-    "name": "Gardening Tools",
+    "name": "Garden Tools",
     "description": "Set of 2 gardening tools",
     "price": 499,
     "category": "Flowers",
     "image1_name": "gglogo",
     "image2_name": "ai.png",
-    "Push Data to Website": ""
+    "Update Website": false
   },
   {
     "images": [
@@ -39,7 +39,7 @@
     "category": "Cactus",
     "image1_name": "ai.png",
     "image2_name": "gglogo",
-    "Push Data to Website": ""
+    "Update Website": false
   },
   {
     "images": [
@@ -53,7 +53,7 @@
     "category": "Fruits",
     "image1_name": "gglogo",
     "image2_name": "ai.png",
-    "Push Data to Website": ""
+    "Update Website": false
   },
   {
     "images": [
@@ -67,6 +67,6 @@
     "category": "Seeds",
     "image1_name": "gglogo",
     "image2_name": "plant.png",
-    "Push Data to Website": ""
+    "Update Website": false
   }
 ]
