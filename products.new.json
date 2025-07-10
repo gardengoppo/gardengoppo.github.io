@@ -1,7 +1,7 @@
 [
   {
     "images": [
-      "https://lh3.googleusercontent.com/d/1pLQB1LA_i6IGiOlxsWHHuCtnKvNzQ0bA=w800tffttttt",
+      "https://lh3.googleusercontent.com/d/1-8RXUB2_FLMK6vNEO0y4rtZESzJNDAGV=w800",
       "https://lh3.googleusercontent.com/d/1-8RXUB2_FLMK6vNEO0y4rtZESzJNDAGV=w800"
     ],
     "id": 1,
@@ -9,7 +9,7 @@
     "description": "Beautiful flower plants",
     "price": 299,
     "category": "Flowers",
-    "image1_name": "ai.png",
+    "image1_name": "gglogo",
     "image2_name": "gglogo",
     "Push Data to Website": false
   },
